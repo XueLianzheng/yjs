@@ -1,0 +1,52 @@
+“API for Open LLMs”项目主要是为开源大模型提供一个统一的后端接口，实现与OpenAI的响应保持一致。这意味着用户可以通过类似于OpenAI ChatGPT API的方式调用各种开源大模型。
+
+项目的一些主要特性：
+流式响应：支持流式响应，实现类似打印机的效果。
+文本嵌入模型：实现文本嵌入模型，为文档知识问答提供支持。
+Langchain 支持：支持大规模语言模型开发工具Langchain的各类功能。
+环境变量配置：通过简单修改环境变量，支持将开源模型作为ChatGPT的替代模型。
+Lora 模型支持：支持加载经过自行训练过的Lora模型。
+vLLM 加速：支持vLLM推理加速和处理并发请求。
+
+项目的结构
+目录：
+`.github`目录：通常存放GitHub相关的配置文件，如CI/CD配置等。
+`api`目录：存放API相关的代码文件，实现具体的API功能。
+`assets`目录：存放项目的静态资源，如图片等。
+`docker`目录：包含Docker相关的配置文件，用于容器化部署。
+`docs`目录：文档目录，包含项目的文档说明。
+`examples`目录：示例代码目录，提供项目使用的示例。
+`libs`目录：存放项目依赖的库或模块。
+`streamlit-demo`目录：包含使用Streamlit进行演示的代码。
+`tests`目录：测试目录，存放项目的测试代码。
+文件：
+`.env.example` 和 `.env.vllm.example`：环境变量配置示例文件，用户可根据需要配置环境变量。
+`docker-compose.vllm.yml` 和 `docker-compose.yml`：Docker Compose配置文件，用于定义和运行多容器Docker应用。
+`LICENSE`：许可证文件，说明项目的授权协议。
+`README.md`：项目的介绍和使用说明文件。
+`requirements.txt`：Python项目的依赖文件，列出需要安装的Python包。
+
+各个目录下python文件的作用
+#### `api` 目录
+- **`common.py`**：包含项目中使用的通用函数或常量。
+- **`config.py`**：用于配置相关的代码，如读取环境变量或配置文件。
+- **`models.py`**：定义数据模型或业务模型。
+- **`protocol.py`**：定义API协议相关的内容。
+- **`server.py`**：启动API服务器的代码，可能使用Flask或FastAPI等框架。
+- **`utils.py`**：实用工具函数，支持其他模块的功能。
+#### `examples` 目录
+- **`openai_api.py`**：展示如何使用项目API与OpenAI接口交互的示例。
+- **`request_test.py`**：测试API请求的示例代码。
+#### `libs` 目录
+- **`test`**：可能与Langchain相关的库或模块，用于支持大规模语言模型的开发。
+#### `streamlit-demo` 目录
+- **`streamlit_app.py`**：使用Streamlit构建的Web应用程序，展示项目功能的演示。
+- **`requirements.txt`**：列出Streamlit应用程序所需的依赖库。
+#### `tests` 目录
+- **`chat.py`**：测试聊天功能的代码。
+- **`completion.py`**：测试文本补全功能的代码。
+- **`embedding.py`**：测试文本嵌入功能的代码。
+- **`file.py`**：测试文件相关功能的代码。
+- **`glm4v.py`**：测试GLM-4V模型的示例。
+- **`langchain_test.py`**：测试Langchain相关功能的代码。
+- **`rerank.py`**：测试重排序功能的代码。
